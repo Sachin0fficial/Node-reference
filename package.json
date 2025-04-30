@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx nodemon src/index.js"
   },
-  "author": "Sanket",
+  "author": "Sachin",
   "license": "ISC",
   "dependencies": {
     "base_node_js_project_template": "file:",
