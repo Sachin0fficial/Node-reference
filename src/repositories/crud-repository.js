@@ -1,68 +1,68 @@
 const { Logger } = require("../config/logger-config");
 
-class CrudRepository {
+class CrudRespository {
     constructor(model) {
         this.model = model;
     }
 
     async create(data) {
         try {
-            const response = await this.model.create(date);
-            console.log(response)
-            return response;
+            const result = await this.model.create(data);
+            return result;
         } catch (error) {
-            Logger.error("something went wrong in crud repository : create");
+            console.log("Something went wrong in crus repo");
             throw error;
         }
     }
 
-    async destroy(data) {
+    async destroy(modelId) {
         try {
-            const response = await this.model.destroy({
+            await this.model.destroy({
                 where: {
-                    id: data,
-                },
+                    id: modelId
+                }
             });
-            return response;
+            return true;
         } catch (error) {
-            Logger.error("something went wrong in crud repository : create");
+            console.log("Something went wrong in crus repo");
             throw error;
         }
     }
 
-    async get(data) {
+    async get(modelId) {
         try {
-            const response = await this.model.findByPk(data);
-            return response;
+            const result = await this.model.findByPk(modelId);
+            return result;
         } catch (error) {
-            Logger.error("something went wrong in crud repository : create");
+            console.log("Something went wrong in crus repo");
             throw error;
         }
     }
 
-    async getAll(data) {
+    async getAll() {
         try {
-            const response = await this.model.findAll();
-            return response;
+            const result = await this.model.findAll();
+            return result;
         } catch (error) {
-            Logger.error("something went wrong in crud repository : create");
+            console.log("Something went wrong in crus repo");
             throw error;
         }
     }
 
-    async update(id, data) {
+    async update(modelId, data) {
         try {
-            const response = await this.model.update(data, {
+            const result = await this.model.update(data, {
                 where: {
-                    id: id,
+                    id: modelId
                 },
+                 
             });
-            return response;
+            return result;
         } catch (error) {
-            Logger.error("something went wrong in crud repository : create");
+            console.log("Something went wrong in crus repo");
             throw error;
         }
     }
 }
 
-module.exports = CrudRepository;
+module.exports = CrudRespository;
